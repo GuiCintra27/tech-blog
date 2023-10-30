@@ -40,7 +40,7 @@ const Container = styled.div`
     background: #fff;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
     
-    transform: translateX(${({theme}) => theme.colors.background !== "#fff" ? "100%" : "0"});
+    transform: translateX(${({theme}) => theme.colors.primary !== "#fff" ? "100%" : "0"});
     transition: all .4s ease-in-out;
   }
 

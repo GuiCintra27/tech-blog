@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     max-width: 100vw;
     overflow-x: hidden;
     font-size: 62.5%;
-    background-color: ${(props) => props.theme.colors.background};
+    background-color: ${(props) => props.theme.colors.primary};
     color: ${(props) => props.theme.colors.text};
   }
 
