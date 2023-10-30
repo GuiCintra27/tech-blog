@@ -1,7 +1,7 @@
 "use client";
 
 import styled from "styled-components";
-import { NavBar } from "./nav-bar";
+import { NavBar } from "./navBar";
 import { SearchBar } from "./searchBar";
 import { ChangeThemeButton } from "./changeThemeButton";
 
