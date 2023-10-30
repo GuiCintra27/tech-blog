@@ -1,5 +1,5 @@
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export enum ThemeType {
   light = "light",
@@ -8,10 +8,10 @@ export enum ThemeType {
 
 export type Theme = {
   theme: ThemeType;
-}
+};
 
 const initialState: Theme = {
-  theme: useLocalStorage.getItem("theme") ? useLocalStorage.getItem("theme") : ThemeType.light,
+  theme: ThemeType.light,
 };
 
 export const themeSlice = createSlice({
@@ -19,7 +19,7 @@ export const themeSlice = createSlice({
   initialState,
   reducers: {
     toggleTheme: (state) => {
-      if(state.theme === ThemeType.light){
+      if (state.theme === ThemeType.light) {
         state.theme = ThemeType.dark;
         useLocalStorage.setItem("theme", ThemeType.dark);
       } else {
@@ -27,8 +27,14 @@ export const themeSlice = createSlice({
         useLocalStorage.setItem("theme", ThemeType.light);
       }
     },
+    setTheme: (state, action: PayloadAction<Theme>) => {
+      const theme = action.payload?.theme;
+
+      state.theme = theme;
+      useLocalStorage.setItem("theme", theme);
+    },
   },
 });
 
-export const { toggleTheme } = themeSlice.actions;
+export const { toggleTheme, setTheme } = themeSlice.actions;
 export const themeReducer = themeSlice.reducer;

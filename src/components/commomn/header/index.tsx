@@ -1,22 +1,39 @@
-"use client"
+"use client";
 
-import { toggleTheme } from "@/components/infra/storage/theme";
-import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { NavBar } from "./nav-bar";
+import { SearchBar } from "./searchBar";
+import { ChangeThemeButton } from "./changeThemeButton";
 
-export function Header({children}: {children: React.ReactNode}) {
-  const dispatch = useDispatch();
-  
-  
+export function Header() {
   return (
-    <Container onClick={() => dispatch(toggleTheme())}>
-      {children}
+    <Container>
+      <img className="logo" src="/logo/logo.svg" alt="Logo" />
+      <NavBar />
+      <div className="actions">
+        <SearchBar />
+        <ChangeThemeButton />
+      </div>
     </Container>
   );
 }
 
 const Container = styled.div`
-  width: 100%;
+  width: 120rem;
+  margin: 3.2rem auto;
 
   display: flex;
-`
+  justify-content: space-between;
+
+  .logo {
+    filter: brightness(${({ theme }) => theme.brightness})
+      invert(${({ theme }) => theme.invert}) grayscale(1);
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+
+    gap: 4rem;
+  }
+`;
