@@ -48,7 +48,7 @@ const Container = styled.div`
   gap: 2.4rem;
 
   border-radius: 1.2rem;
-  border: 2px solid ${({ theme }) => theme.colors.cardBorder};
+  border: ${({ theme }) => theme.borderWidth} solid ${({ theme }) => theme.colors.cardBorder};
   background: ${({ theme }) => theme.colors.primary};
 
   /* shadow-md */

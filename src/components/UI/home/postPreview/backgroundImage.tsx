@@ -2,10 +2,10 @@
 import styled from "styled-components";
 
 export function BgImage({url}: {url: string}) {
-  return <Container url={url} />;
+  return <Container $url={url} />;
 }
 
-const Container = styled.img<{url: string}>`
+const Container = styled.img<{$url: string}>`
   width: 121.6rem;
   height: 60rem;
   flex-shrink: 0;
@@ -16,7 +16,7 @@ const Container = styled.img<{url: string}>`
       rgba(20, 22, 36, 0.4) 0%,
       rgba(20, 22, 36, 0.4) 100%
     ),` : ""}
-    url(${({ url }) => url}),
+    url(${({ $url }) => $url}),
     lightgray 50%;
   background-size: cover;
   background-position: 0rem 50%;

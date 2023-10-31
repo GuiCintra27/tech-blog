@@ -13,7 +13,7 @@ export function PostCard({ postPreviewData }: PostPreviewData) {
       <Image src={imageUrl} alt="" width={360} height={240} />
       <CategoryExtended
         color={category.color}
-        backgroundColor={backgroundColor}
+        $background_color={backgroundColor}
       >
         <p>{category.name}</p>
       </CategoryExtended>
@@ -39,18 +39,20 @@ const Container = styled.div`
   gap: 1.6rem;
 
   border-radius: 1.2rem;
-  border: 1px solid ${({ theme }) => theme.colors.cardBorder};
+  border: ${({ theme }) => theme.borderWidth} solid
+    ${({ theme }) => theme.colors.cardBorder};
   background: ${({ theme }) => theme.colors.primary};
 
   img {
-    width: 100%;
+    width: auto;
+    height: auto;
     border-radius: 0.6rem;
     background: lightgray 50% / cover no-repeat;
   }
 `;
 
-const CategoryExtended = styled(Category)<{ backgroundColor: string }>`
-  background-color: ${({ backgroundColor }) => backgroundColor};
+const CategoryExtended = styled(Category)<{ $background_color: string }>`
+  background-color: ${({ $background_color }) => $background_color};
   p {
     color: ${({ color }) => color};
   }

@@ -19,5 +19,6 @@ declare module "styled-components" {
     };
     brightness: number;
     invert: number;
+    borderWidth: string;
   }
 }

@@ -16,4 +16,5 @@ export const whiteTheme = {
   },
   brightness: 1,
   invert: 0,
+  borderWidth: "1px",
 };

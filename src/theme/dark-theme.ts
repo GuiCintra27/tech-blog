@@ -16,4 +16,5 @@ export const darkTheme = {
   },
   brightness: 1,
   invert: 1,
+  borderWidth: "2px",
 };
