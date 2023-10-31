@@ -22,7 +22,8 @@ export default function Home() {
     <main style={{ width: "fit-content", maxWidth: "120rem", margin: "0 auto" }}>
       <Header />
       <PostPreview postPreviewData={postPreviewData} />
-      <LatestPosts />
+      <Ads />
+      <LatestPosts postPreviewData={{...postPreviewData, imageUrl: "https://e1.pxfuel.com/desktop-wallpaper/457/590/desktop-wallpaper-4-cute-cat-drawings-kawaii-cat-laptop-thumbnail.jpg"}} />
       <Ads />
     </main>
   );

@@ -41,7 +41,7 @@ const Container = styled.div`
   left: 6.4rem;
   bottom: -6.4rem;
   display: flex;
-  width: 59.8rem;
+  width: 59rem;
   padding: 4rem;
   flex-direction: column;
   align-items: flex-start;
@@ -55,7 +55,7 @@ const Container = styled.div`
   box-shadow: 0px 12px 24px -6px ${({ theme }) => theme.colors.primary === "#fff" ? "rgba(24, 26, 42, 0.12)" : "rgba(230, 231, 235, 0.12)"};
 `;
 
-const Category = styled.div<{ color: string }>`
+export const Category = styled.div<{ color: string }>`
   display: flex;
   padding: 0.4rem 1rem;
   justify-content: center;
@@ -73,7 +73,7 @@ const Category = styled.div<{ color: string }>`
   }
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.text.primary};
 
   font-size: 3.6rem;
@@ -81,7 +81,7 @@ const Title = styled.h1`
   line-height: 4rem; /* 111.111% */
 `;
 
-const PostData = styled.div`
+export const PostData = styled.div`
   display: flex;
   height: 3.6rem;
   align-items: center;
@@ -89,6 +89,8 @@ const PostData = styled.div`
 
   img {
     clip-path: circle(50% at 50%);
+    height: 3.6rem;
+    width: 3.6rem;
   }
 
   p {

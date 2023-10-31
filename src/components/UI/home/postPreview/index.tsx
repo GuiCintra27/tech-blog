@@ -3,24 +3,9 @@
 import styled from "styled-components";
 import { BgImage } from "./backgroundImage";
 import { DataCard } from "./dataCard";
+import { PostPreviewData } from "@/lib/types/posts";
 
-export function PostPreview({
-  postPreviewData,
-}: {
-  postPreviewData: {
-    imageUrl: string;
-    category: {
-      color: string;
-      name: string;
-    };
-    title: string;
-    author: {
-      name: string;
-      avatarUrl: string;
-    };
-    date: string;
-  };
-}) {
+export function PostPreview({ postPreviewData }: PostPreviewData) {
   const { imageUrl, category, title, author, date } = postPreviewData;
   return (
     <Container>
