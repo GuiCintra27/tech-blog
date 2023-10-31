@@ -28,4 +28,8 @@ const PageLink = styled.div`
   font-size: 1.6rem;
   line-height: 2.4rem;
   color: ${(props) => props.theme.colors.text.link};
+
+  a:hover{
+    color: #4B6BFB;
+  }
 `;
