@@ -1,9 +1,10 @@
 export const darkTheme = {
   colors: {
     primary: "#181A2A",
+    footer: "#141624",
     headerSearchBar: "#242535",
     changeThemeButton: "#4B6BFB",
-    cardBorder: "#242535",
+    border: "#242535",
     ads: "#242535",
     text: {
       primary: "#fff",

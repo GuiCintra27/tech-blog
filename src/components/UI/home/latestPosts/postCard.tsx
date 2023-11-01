@@ -40,7 +40,7 @@ const Container = styled.div`
 
   border-radius: 1.2rem;
   border: ${({ theme }) => theme.borderWidth} solid
-    ${({ theme }) => theme.colors.cardBorder};
+    ${({ theme }) => theme.colors.border};
   background: ${({ theme }) => theme.colors.primary};
 
   img {

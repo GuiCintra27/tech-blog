@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Work_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import StyledComponentsRegistry from "@/lib/registry";
 import { ThemeProvider } from "@/theme/theme";
 import GlobalStyle from "@/global/globalStyle";
 import { ReduxProvider } from "@/lib/reduxProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const workSans = Work_Sans({ subsets: ["latin"], variable: "--work-sans" });
+const JakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--jakarta-sans" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${workSans.variable} ${JakartaSans.variable}`}>
         <StyledComponentsRegistry>
           <ReduxProvider>
             <ThemeProvider>

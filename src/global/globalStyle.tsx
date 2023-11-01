@@ -12,12 +12,12 @@ const GlobalStyle = createGlobalStyle`
   
   html,
   body {
-    font-family: "Work Sans";
+    font-family: var(--work-sans);
     max-width: 100vw;
     overflow-x: hidden;
     font-size: 62.5%;
     background-color: ${(props) => props.theme.colors.primary};
-    color: ${(props) => props.theme.colors.text};
+    color: ${(props) => props.theme.colors.text.primary};
   }
 
   a {

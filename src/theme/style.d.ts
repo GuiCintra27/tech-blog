@@ -4,9 +4,10 @@ declare module "styled-components" {
   export interface DefaultTheme {
     colors: {
       primary: string;
+      footer: string;
       headerSearchBar: string;
       changeThemeButton: "#e8e8ea";
-      cardBorder: string;
+      border: string;
       ads: string;
       text: {
         primary: string;

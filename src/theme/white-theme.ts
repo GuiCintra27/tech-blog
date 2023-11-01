@@ -1,9 +1,10 @@
 export const whiteTheme = {
   colors: {
     primary: "#fff",
+    footer: "#F6F6F7",
     headerSearchBar: "#F4F4F5",
     changeThemeButton: "#e8e8ea",
-    cardBorder: "#e8e8ea",
+    border: "#e8e8ea",
     ads: "#e8e8ea",
     text: {
       primary: "#181A2A",
