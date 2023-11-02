@@ -4,7 +4,7 @@ import styled from "styled-components";
 export function NavBar() {
   const pages = {
     Home: "/",
-    Blog: "/blog",
+    Categories: "/categories",
     Contact: "/contact",
   };
   return (

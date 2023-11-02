@@ -9,11 +9,16 @@ declare module "styled-components" {
       changeThemeButton: "#e8e8ea";
       border: string;
       ads: string;
+      mention: {
+        background: string;
+        border: string;
+      };
       text: {
         primary: string;
         secondary: string;
         link: string;
         ads: string;
+        post: string;
         headerSearchBar: string;
         headerSearchBarPlaceholder: string;
       };

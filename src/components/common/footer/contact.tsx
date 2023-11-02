@@ -26,7 +26,6 @@ const Container = styled.div`
   width: 28.9rem;
   flex-direction: column;
   align-items: flex-start;
-  word-break: break-all;
   word-wrap: break-word;
 
   #title {

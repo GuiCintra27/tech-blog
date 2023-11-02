@@ -35,7 +35,6 @@ export function Links() {
 const Container = styled.div`
   display: flex;
   gap: 8rem;
-  word-break: break-all;
   word-wrap: break-word;
 
   .section {
