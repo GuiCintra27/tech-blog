@@ -6,7 +6,7 @@ import { Header } from "@/components/common/header";
 
 export default function Home() {
   const postPreviewData = {
-    id:3,
+    id: 3,
     imageUrl:
       "https://img.freepik.com/fotos-premium/dois-gatinhos-fofos-em-coracoes-amorosos-romanticos-generative-ai_791316-12460.jpg",
     category: {
@@ -25,10 +25,10 @@ export default function Home() {
 
   return (
     <>
+      <Header />
       <main
         style={{ width: "fit-content", maxWidth: "120rem", margin: "0 auto" }}
       >
-        <Header />
         <PostPreview postPreviewData={postPreviewData} />
         <Ads />
         <LatestPosts
