@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
+  margin-bottom: 10rem;
   display: flex;
   width: 80rem;
   flex-direction: column;
@@ -8,6 +9,7 @@ export const Content = styled.div`
   img {
     margin-bottom: 3.2rem;
     width: 100%;
+    aspect-ratio: 16/9;
     border-radius: 1.2rem;
   }
 
@@ -32,11 +34,17 @@ export const Content = styled.div`
     line-height: 2.8rem; /* 116.667% */
   }
 
+  a {
+    color: #40c1dd;
+    font-weight: 600;
+  }
+
   .mention {
     margin-bottom: 3.2rem;
     display: flex;
+    flex-direction: column;
     padding: 3.2rem;
-    align-items: center;
+    justify-content: center;
 
     border-radius: 1.2rem;
     border-left: 4px solid ${({ theme }) => theme.colors.mention.border};

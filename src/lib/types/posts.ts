@@ -1,7 +1,7 @@
 export type PostPreviewData = {
   postPreviewData: {
     id: number;
-    imageUrl: string;
+    coverImage: string;
     category: {
       color: string;
       name: string;
@@ -9,7 +9,7 @@ export type PostPreviewData = {
     title: string;
     author: {
       name: string;
-      avatarUrl: string;
+      picture: string;
     };
     date: string;
   };
@@ -18,7 +18,7 @@ export type PostPreviewData = {
 export type PostData = {
   postData: {
     id: number;
-    imageUrl: string;
+    coverImage: string;
     category: {
       color: string;
       name: string;
@@ -26,7 +26,7 @@ export type PostData = {
     title: string;
     author: {
       name: string;
-      avatarUrl: string;
+      picture: string;
     };
     date: string;
     content: string;

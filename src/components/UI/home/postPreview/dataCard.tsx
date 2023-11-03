@@ -15,7 +15,7 @@ export function DataCard({
   title: string;
   author: {
     name: string;
-    avatarUrl: string;
+    picture: string;
   };
   date: string;
 }) {
@@ -27,7 +27,7 @@ export function DataCard({
       <Title>{title}</Title>
       <PostData>
         <div className="author">
-          <Image src={author.avatarUrl} height={36} width={36} alt="" />
+          <Image src={author.picture} height={36} width={36} alt="" />
           <p className="light-bold">{author.name}</p>
         </div>
         <p>{date}</p>

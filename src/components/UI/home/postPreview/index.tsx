@@ -6,10 +6,10 @@ import { DataCard } from "./dataCard";
 import { PostPreviewData } from "@/lib/types/posts";
 
 export function PostPreview({ postPreviewData }: PostPreviewData) {
-  const { imageUrl, category, title, author, date } = postPreviewData;
+  const { coverImage, category, title, author, date } = postPreviewData;
   return (
     <Container>
-      <BgImage url={imageUrl} />
+      <BgImage url={coverImage} />
       <DataCard category={category} author={author} title={title} date={date} />
     </Container>
   );
