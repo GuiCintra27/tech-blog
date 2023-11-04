@@ -4,10 +4,17 @@ import StyledComponentsRegistry from "@/lib/registry";
 import { ThemeProvider } from "@/theme/theme";
 import GlobalStyle from "@/global/globalStyle";
 import { ReduxProvider } from "@/lib/reduxProvider";
+import { ApolloProvider } from "@/lib/apolloProvider";
 
 const workSans = Work_Sans({ subsets: ["latin"], variable: "--work-sans" });
-const JakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--jakarta-sans" });
-const sourceSerif = Source_Serif_4({ subsets: ["latin"], variable: "--source-serif" });
+const JakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--jakarta-sans",
+});
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  variable: "--source-serif",
+});
 
 export const metadata: Metadata = {
   title: "TechBlog",
@@ -21,12 +28,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${workSans.variable} ${JakartaSans.variable} ${sourceSerif.variable}`}>
+      <body
+        className={`${workSans.variable} ${JakartaSans.variable} ${sourceSerif.variable}`}
+      >
         <StyledComponentsRegistry>
           <ReduxProvider>
             <ThemeProvider>
-              <GlobalStyle />
-              {children}
+              <ApolloProvider>
+                <GlobalStyle />
+                {children}
+              </ApolloProvider>
             </ThemeProvider>
           </ReduxProvider>
         </StyledComponentsRegistry>

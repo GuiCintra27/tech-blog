@@ -2,17 +2,17 @@
 
 import styled from "styled-components";
 import { PostCard } from "./postCard";
-import { PostPreviewData } from "@/lib/types/posts";
+import { usePostsQuery } from "@/generated/graphql";
 
-export function LatestPosts({ postPreviewData }: PostPreviewData) {
-  const arr = new Array(10).fill(postPreviewData);
+export function LatestPosts() {
+  const { data } = usePostsQuery();
 
   return (
     <>
       <SectionTitle>Latest Posts</SectionTitle>;
       <Container>
-        {arr.map((item, index) => (
-          <PostCard postPreviewData={item} key={index} />
+        {data?.posts?.map((item) => (
+          <PostCard posts={item} key={item.id} />
         ))}
       </Container>
     </>

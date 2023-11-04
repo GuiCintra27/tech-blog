@@ -5,28 +5,44 @@ import Image from "next/image";
 import { hexToRgbA } from "@/lib/functions/hexToRgba";
 import Link from "next/link";
 
-export function PostCard({ postPreviewData }: PostPreviewData) {
-  const { coverImage, category, title, author, date } = postPreviewData;
-  const backgroundColor = hexToRgbA(category.color, 0.05);
+export function PostCard({ posts }: PostPreviewData) {
+  const { coverImage, category, title, author, date } = posts;
+  const backgroundColor = hexToRgbA(category.color.hex, 0.05);
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
   return (
     <Container>
-      <Link href={`/posts/${postPreviewData.id}`}>
-        <Image src={coverImage} alt="Go to post" width={360} height={240} />
+      <Link href={`/posts/${posts.slug}`}>
+        <Image src={coverImage.url} alt="Go to post" width={360} height={240} />
       </Link>
       <CategoryExtended
-        color={category.color}
+        color={category.color.hex}
         $background_color={backgroundColor}
       >
         <p>{category.name}</p>
       </CategoryExtended>
-      <TitleExtended href={`/posts/${postPreviewData.id}`}>{title}</TitleExtended>
+      <TitleExtended href={`/posts/${posts.slug}`}>{title}</TitleExtended>
       <PostDataExtended>
         <div className="author">
-          <Image src={author.picture} height={36} width={36} alt="" />
+          <Image src={author.picture.url} height={36} width={36} alt="" />
           <p className="light-bold">{author.name}</p>
         </div>
-        <p>{date}</p>
+        <p>{`${months[new Date(date).getMonth()]} 
+        ${new Date(date).getDate()}, 
+        ${new Date(date).getFullYear()}`}</p>
       </PostDataExtended>
     </Container>
   );

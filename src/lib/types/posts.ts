@@ -1,34 +1,35 @@
 export type PostPreviewData = {
-  postPreviewData: {
-    id: number;
-    coverImage: string;
-    category: {
-      color: string;
-      name: string;
-    };
+  posts: {
+    __typename?: "Post";
+    id: string;
+    slug: string;
     title: string;
-    author: {
+    date: any;
+    coverImage: { __typename?: "Asset"; url: string };
+    category: {
+      __typename?: "Category";
       name: string;
-      picture: string;
+      color: { __typename?: "Color"; hex: any };
     };
-    date: string;
+    author: {
+      __typename?: "Author";
+      name: string;
+      picture: { __typename?: "Asset"; url: string };
+    };
   };
 };
 
 export type PostData = {
-  postData: {
-    id: number;
-    coverImage: string;
-    category: {
-      color: string;
-      name: string;
-    };
-    title: string;
-    author: {
-      name: string;
-      picture: string;
-    };
-    date: string;
-    content: string;
+  coverImage: string;
+  category: {
+    color: string;
+    name: string;
   };
-}
+  title: string;
+  author: {
+    name: string;
+    picture: string;
+  };
+  date: string;
+  content: any;
+};

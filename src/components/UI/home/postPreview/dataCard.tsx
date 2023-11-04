@@ -19,6 +19,21 @@ export function DataCard({
   };
   date: string;
 }) {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   return (
     <Container>
       <Category color={category.color}>
@@ -30,7 +45,9 @@ export function DataCard({
           <Image src={author.picture} height={36} width={36} alt="" />
           <p className="light-bold">{author.name}</p>
         </div>
-        <p>{date}</p>
+        <p>{`${months[new Date(date).getMonth()]} 
+        ${new Date(date).getDate()}, 
+        ${new Date(date).getFullYear()}`}</p>
       </PostData>
     </Container>
   );

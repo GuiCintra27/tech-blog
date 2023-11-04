@@ -1,0 +1,22 @@
+query LatestPost($last: Int!) {
+  posts(last: $last) {
+    slug
+    title
+    coverImage {
+      url(transformation: {image: {resize: {width: 360, height: 240, fit: crop}}})
+    }
+    category{
+      name
+      color{
+        hex
+      }
+    }
+    author{
+      name
+      picture{
+        url(transformation: {image: {resize: {width: 28, height: 28, fit: crop}}})
+      }
+    }
+    date
+  }
+}
