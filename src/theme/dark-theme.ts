@@ -17,7 +17,7 @@ export const darkTheme = {
       headerSearchBarPlaceholder: "#a1a1aa",
       link: "#fff",
       ads: "#696A75",
-      post: "#BABABF"
+      post: "#BABABF",
     },
   },
   brightness: 1,

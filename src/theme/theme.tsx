@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { ThemeType, setTheme, toggleTheme } from "@/components/infra/storage/theme";
-import { useAppSelector } from "@/hooks/useAppSelector";
-import { ThemeProvider as ThemeProviderStyled } from "styled-components";
-import { whiteTheme } from "./white-theme";
-import { darkTheme } from "./dark-theme";
-import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { useDispatch } from "react-redux";
+import { ThemeProvider as ThemeProviderStyled } from "styled-components";
+
+import { darkTheme } from "./dark-theme";
+import { whiteTheme } from "./white-theme";
+import { useAppSelector } from "@/hooks/useAppSelector";
+import { ThemeType, setTheme } from "@/components/infra/storage/theme";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -25,12 +25,14 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   useEffect(() => {
     const theme = localStorage.getItem("theme");
 
-    if(theme && JSON.parse(theme) === ThemeType.dark) {
-      dispatch(setTheme({
-        theme: ThemeType.dark
-      }));
+    if (theme && JSON.parse(theme) === ThemeType.dark) {
+      dispatch(
+        setTheme({
+          theme: ThemeType.dark,
+        })
+      );
     }
-  }, [])
+  }, []);
 
   return (
     <ThemeProviderStyled theme={themes[theme]}>{children}</ThemeProviderStyled>

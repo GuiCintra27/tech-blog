@@ -17,7 +17,7 @@ export const whiteTheme = {
       headerSearchBarPlaceholder: "#a1a1aa",
       link: "#3B3C4A",
       ads: "#696A75",
-      post: "#3B3C4A"
+      post: "#3B3C4A",
     },
   },
   brightness: 1,

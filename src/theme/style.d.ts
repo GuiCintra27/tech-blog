@@ -6,7 +6,7 @@ declare module "styled-components" {
       primary: string;
       footer: string;
       headerSearchBar: string;
-      changeThemeButton: "#e8e8ea";
+      changeThemeButton: string;
       border: string;
       ads: string;
       mention: {
