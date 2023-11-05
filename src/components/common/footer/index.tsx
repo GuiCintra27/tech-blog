@@ -1,7 +1,9 @@
 "use client";
+
 import styled from "styled-components";
-import { Contact } from "./contact";
+
 import { Links } from "./links";
+import { Contact } from "./contact";
 import { NewsLetter } from "./newsLetter";
 import { OtherInformations } from "./otherInformations";
 
@@ -20,9 +22,11 @@ export function Footer() {
 
 const Container = styled.div`
   margin-top: 2rem;
+
   width: 100vw;
   height: 100%;
   display: flex;
+
   flex-direction: column;
   align-items: center;
 
@@ -33,8 +37,10 @@ const Container = styled.div`
 
   main {
     margin: 6.4rem 0;
+
     width: 120rem;
     display: flex;
+
     justify-content: space-between;
   }
 `;

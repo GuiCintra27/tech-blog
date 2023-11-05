@@ -1,6 +1,7 @@
-import { toggleTheme } from "@/components/infra/storage/theme";
-import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+
+import { toggleTheme } from "@/components/infra/storage/theme";
 
 export function ChangeThemeButton() {
   const dispatch = useDispatch();
@@ -24,9 +25,9 @@ const Container = styled.div`
   cursor: pointer;
 
   border-radius: 10rem;
-  background: ${({theme}) => theme.colors.changeThemeButton};
+  background: ${({ theme }) => theme.colors.changeThemeButton};
 
-  transition: .4s;
+  transition: 0.4s;
 
   .white-circle {
     width: 2.4rem;
@@ -39,9 +40,11 @@ const Container = styled.div`
     border-radius: 10rem;
     background: #fff;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
-    
-    transform: translateX(${({theme}) => theme.colors.primary !== "#fff" ? "100%" : "0"});
-    transition: all .4s ease-in-out;
+
+    transform: translateX(
+      ${({ theme }) => (theme.colors.primary !== "#fff" ? "100%" : "0")}
+    );
+    transition: all 0.4s ease-in-out;
   }
 
   img {

@@ -13,9 +13,11 @@ export function Ads() {
 
 const Container = styled.div`
   margin: 8rem auto;
+
   display: flex;
   width: 75rem;
   height: 10rem;
+  
   flex-direction: column;
   justify-content: center;
   align-items: center;

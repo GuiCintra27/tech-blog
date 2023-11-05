@@ -1,6 +1,7 @@
 "use client";
 
 import styled from "styled-components";
+
 import { NavBar } from "./navBar";
 import { SearchBar } from "./searchBar";
 import { ChangeThemeButton } from "./changeThemeButton";
@@ -22,6 +23,7 @@ export function Header() {
 
 const Container = styled.div`
   width: 100vw;
+
   main {
     width: 120rem;
     margin: 3.2rem auto;

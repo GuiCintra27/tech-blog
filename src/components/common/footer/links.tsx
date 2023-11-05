@@ -1,12 +1,14 @@
-import Link from "next/link";
 import styled from "styled-components";
 
 export function Links() {
-  const pages = {
-    Home: "/",
-    Blog: "/blog",
-    Contact: "/contact",
-  };
+  const pages = [
+    "Home",
+    "About",
+    "Contact",
+    "Blog",
+    "Terms of Use",
+    "Privacy Policy",
+  ];
 
   const categories = ["Lifestyle", "Travel", "Fashion", "Food", "Photography"];
 
@@ -14,16 +16,24 @@ export function Links() {
     <Container>
       <div className="section">
         <div className="title">Quick Link</div>
-        {Object.keys(pages).map((page, index) => (
-          <Link className="link" key={index} href={pages[page]}>
+        {pages.map((page, index) => (
+          <p
+            className="link"
+            key={index}
+            onClick={() => alert("This link is for illustration only")}
+          >
             {page}
-          </Link>
+          </p>
         ))}
       </div>
       <div className="section">
         <div className="title">Category</div>
         {categories.map((category, index) => (
-          <p className="link" key={index}>
+          <p
+            className="link"
+            key={index}
+            onClick={() => alert("This link is for illustration only")}
+          >
             {category}
           </p>
         ))}
@@ -34,11 +44,13 @@ export function Links() {
 
 const Container = styled.div`
   display: flex;
+
   gap: 8rem;
   word-wrap: break-word;
 
   .section {
     display: flex;
+    
     flex-direction: column;
     gap: 0.8rem;
 
@@ -53,6 +65,7 @@ const Container = styled.div`
       color: ${({ theme }) => theme.colors.text.link};
       font-size: 1.6rem;
       line-height: 2.4rem; /* 150% */
+      cursor: pointer;
     }
   }
 `;

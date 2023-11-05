@@ -22,6 +22,7 @@ const Container = styled.div`
   display: flex;
   width: 39.2rem;
   padding: 3.2rem;
+
   flex-direction: column;
   align-items: center;
   gap: 0.8rem;
@@ -38,26 +39,31 @@ const Container = styled.div`
 
   .subtitle {
     margin-bottom: 2.2rem;
+
     font-size: 1.6rem;
     line-height: 2.4rem; /* 150% */
     color: ${({ theme }) => theme.colors.text.ads};
   }
 
   .mailBox {
-    width: 100%;
-    display: flex;
     padding: 1rem 1.6rem;
+
+    display: flex;
+    width: 100%;
+
     justify-content: center;
     align-items: center;
     gap: 2rem;
+
     border: ${({ theme }) => theme.borderWidth} solid
       ${({ theme }) => theme.colors.border};
     font-size: 1.6rem;
     line-height: 2.4rem; /* 150% */
 
     input {
-      background-color: transparent;
       width: 100%;
+
+      background-color: transparent;
       border: none;
     }
 
@@ -67,8 +73,10 @@ const Container = styled.div`
   }
 
   button {
-    display: flex;
     padding: 1.2rem 2rem;
+
+    display: flex;
+    
     justify-content: center;
     align-items: center;
     gap: 1.2rem;

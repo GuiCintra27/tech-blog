@@ -11,9 +11,12 @@ export function NavBar() {
     <>
       <PageLink>
         {Object.keys(pages).map((page, index) => (
-          <Link key={index} href={pages[page]}>
-            {page}
-          </Link>
+          <>
+            {/* @ts-expect-error */}
+            <Link key={index} href={pages[page]}>
+              {page}
+            </Link>
+          </>
         ))}
       </PageLink>
     </>
@@ -22,6 +25,7 @@ export function NavBar() {
 
 const PageLink = styled.div`
   display: flex;
+
   align-items: center;
   gap: 4rem;
 
@@ -29,7 +33,7 @@ const PageLink = styled.div`
   line-height: 2.4rem;
   color: ${(props) => props.theme.colors.text.link};
 
-  a:hover{
-    color: #4B6BFB;
+  a:hover {
+    color: #4b6bfb;
   }
 `;

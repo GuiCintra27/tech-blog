@@ -15,9 +15,11 @@ export function OtherInformations() {
 }
 
 const Container = styled.div`
-  display: flex;
   width: 120rem;
   padding: 3.2rem 0rem;
+
+  display: flex;
+
   align-items: center;
   justify-content: space-between;
 
@@ -26,8 +28,10 @@ const Container = styled.div`
 
   .moreInformations{
     display: flex;
+
     gap: 1.16rem;
     align-items: center;
+    
     color: ${({ theme }) => theme.colors.text.link};
     font-size: 1.6rem;
     line-height: 2.4rem; /* 150% */

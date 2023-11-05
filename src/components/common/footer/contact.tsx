@@ -24,6 +24,7 @@ export function Contact() {
 const Container = styled.div`
   display: flex;
   width: 28.9rem;
+
   flex-direction: column;
   align-items: flex-start;
   word-wrap: break-word;
@@ -45,7 +46,9 @@ const Container = styled.div`
   .data {
     /* text-base/Regular */
     display: flex;
+
     gap: 0.5rem;
+    
     font-size: 1.6rem;
     font-style: normal;
     line-height: 2.4rem;
