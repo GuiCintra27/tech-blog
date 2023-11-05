@@ -1,4 +1,5 @@
 "use client";
+
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { ApolloProvider as Provider } from "@apollo/client";
 export function ApolloProvider({ children }: { children: React.ReactNode }) {

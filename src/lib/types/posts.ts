@@ -18,18 +18,3 @@ export type PostPreviewData = {
     };
   };
 };
-
-export type PostData = {
-  coverImage: string;
-  category: {
-    color: string;
-    name: string;
-  };
-  title: string;
-  author: {
-    name: string;
-    picture: string;
-  };
-  date: string;
-  content: any;
-};
