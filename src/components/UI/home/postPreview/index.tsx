@@ -4,27 +4,42 @@ import styled from "styled-components";
 import { BgImage } from "./backgroundImage";
 import { DataCard } from "./dataCard";
 import { useLatestPostQuery } from "@/generated/graphql";
+import { SkeletonLoading } from "@/components/common/loading";
 
 export function PostPreview() {
-  const { data } = useLatestPostQuery({
+  const { data, loading } = useLatestPostQuery({
     variables: {
       last: 1,
     },
   });
-  
+
   return (
     <Container>
-      {data?.posts?.map((item) => (
-        <>
-          <BgImage url={item.coverImage.url} />
-          <DataCard
-            category={{color: item.category.color.hex, name: item.category.name}}
-            author={{name: item.author.name, picture: item.author.picture.url}}
-            title={item.title}
-            date={item.date}
-          />
-        </>
-      ))}
+      {loading ? (
+        <SkeletonLoading
+          $width="121rem"
+          $height="60rem"
+          $border_radius="1.2rem"
+        />
+      ) : (
+        data?.posts?.map((item) => (
+          <div key={item.slug}>
+            <BgImage url={item.coverImage.url} />
+            <DataCard
+              category={{
+                color: item.category.color.hex,
+                name: item.category.name,
+              }}
+              author={{
+                name: item.author.name,
+                picture: item.author.picture.url,
+              }}
+              title={item.title}
+              date={item.date}
+            />
+          </div>
+        ))
+      )}
     </Container>
   );
 }

@@ -13,7 +13,7 @@ export default async function Post({
       <main
         style={{ width: "fit-content", maxWidth: "80rem", margin: "0 auto" }}
       >
-        <PostContent slug={"Flying car"} />
+        <PostContent slug={slug} />
       </main>
       <Footer />
     </>

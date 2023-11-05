@@ -1,4 +1,5 @@
 "use client";
+import { months } from "@/lib/constants/months";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -19,21 +20,6 @@ export function DataCard({
   };
   date: string;
 }) {
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
   return (
     <Container>
       <Category color={category.color}>

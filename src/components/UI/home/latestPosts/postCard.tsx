@@ -4,29 +4,16 @@ import { Category, PostData, Title } from "../postPreview/dataCard";
 import Image from "next/image";
 import { hexToRgbA } from "@/lib/functions/hexToRgba";
 import Link from "next/link";
+import { months } from "@/lib/constants/months";
 
 export function PostCard({ posts }: PostPreviewData) {
   const { coverImage, category, title, author, date } = posts;
   const backgroundColor = hexToRgbA(category.color.hex, 0.05);
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
 
   return (
-    <Container>
+    <CardContainer>
       <Link href={`/posts/${posts.slug}`}>
-        <Image src={coverImage.url} alt="Go to post" width={360} height={240} />
+        <Image src={coverImage.url} alt="Go to post" width={350} height={240} />
       </Link>
       <CategoryExtended
         color={category.color.hex}
@@ -44,11 +31,11 @@ export function PostCard({ posts }: PostPreviewData) {
         ${new Date(date).getDate()}, 
         ${new Date(date).getFullYear()}`}</p>
       </PostDataExtended>
-    </Container>
+    </CardContainer>
   );
 }
 
-const Container = styled.div`
+export const CardContainer = styled.div`
   display: flex;
   width: 38.5rem;
   padding: 1.6rem;
@@ -63,8 +50,6 @@ const Container = styled.div`
   background: ${({ theme }) => theme.colors.primary};
 
   img {
-    width: auto;
-    height: auto;
     border-radius: 0.6rem;
     background: lightgray 50% / cover no-repeat;
   }

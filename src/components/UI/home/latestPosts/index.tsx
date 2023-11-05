@@ -3,17 +3,18 @@
 import styled from "styled-components";
 import { PostCard } from "./postCard";
 import { usePostsQuery } from "@/generated/graphql";
+import { LoadingPostCard } from "./loadingPostCard";
 
 export function LatestPosts() {
-  const { data } = usePostsQuery();
+  const { data, loading } = usePostsQuery();
 
   return (
     <>
       <SectionTitle>Latest Posts</SectionTitle>;
       <Container>
-        {data?.posts?.map((item) => (
-          <PostCard posts={item} key={item.id} />
-        ))}
+        {loading
+          ? new Array(10).fill(0).map((_, index) => <LoadingPostCard />)
+          : data?.posts?.map((item) => <PostCard posts={item} key={item.id} />)}
       </Container>
     </>
   );
