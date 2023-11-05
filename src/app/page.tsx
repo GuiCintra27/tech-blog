@@ -1,8 +1,8 @@
-import { LatestPosts } from "@/components/UI/home/latestPosts";
-import { PostPreview } from "@/components/UI/home/postPreview";
 import { Ads } from "@/components/common/ads";
 import { Footer } from "@/components/common/footer";
 import { Header } from "@/components/common/header";
+import { LatestPosts } from "@/components/UI/home/latestPosts";
+import { PostPreview } from "@/components/UI/home/postPreview";
 
 export default function Home() {
   return (

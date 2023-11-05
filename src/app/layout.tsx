@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Work_Sans, Plus_Jakarta_Sans, Source_Serif_4 } from "next/font/google";
-import StyledComponentsRegistry from "@/lib/registry";
+
 import { ThemeProvider } from "@/theme/theme";
 import GlobalStyle from "@/global/globalStyle";
 import { ReduxProvider } from "@/lib/reduxProvider";
 import { ApolloProvider } from "@/lib/apolloProvider";
+import StyledComponentsRegistry from "@/lib/registry";
 
 const workSans = Work_Sans({ subsets: ["latin"], variable: "--work-sans" });
 const JakartaSans = Plus_Jakarta_Sans({
