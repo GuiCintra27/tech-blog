@@ -14,7 +14,7 @@ export function LatestPosts() {
       <SectionTitle>Latest Posts</SectionTitle>;
       <Container>
         {loading
-          ? new Array(10).fill(0).map((_, index) => <LoadingPostCard />)
+          ? new Array(10).fill(0).map((_, index) => <LoadingPostCard key={index}/>)
           : data?.posts?.map((item) => <PostCard posts={item} key={item.id} />)}
       </Container>
     </>
