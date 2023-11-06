@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const PostHeader = styled.div<{ $category_background: string }>`
   margin-bottom: 3.2rem;
+
   display: flex;
+  
   flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
@@ -10,8 +12,10 @@ export const PostHeader = styled.div<{ $category_background: string }>`
   word-wrap: break-word;
 
   .category {
-    display: flex;
     padding: 0.6rem 1.2rem;
+    
+    display: flex;
+  
     justify-content: center;
     align-items: center;
     gap: 0.4rem;
@@ -36,6 +40,7 @@ export const PostHeader = styled.div<{ $category_background: string }>`
 
   .postData {
     display: flex;
+
     align-items: center;
     gap: 2.4rem;
 
@@ -49,6 +54,7 @@ export const PostHeader = styled.div<{ $category_background: string }>`
 
     .author {
       display: flex;
+      
       align-items: center;
       gap: 0.8rem;
 

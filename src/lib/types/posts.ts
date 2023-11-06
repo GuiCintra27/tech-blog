@@ -18,3 +18,18 @@ export type PostPreviewData = {
     };
   };
 };
+
+export type DataCardType = {
+  title: string;
+  date: any;
+  category: {
+    __typename?: "Category";
+    name: string;
+    color: { __typename?: "Color"; hex: any };
+  };
+  author: {
+    __typename?: "Author";
+    name: string;
+    picture: { __typename?: "Asset"; url: string };
+  };
+};

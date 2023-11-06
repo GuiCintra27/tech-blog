@@ -1,4 +1,5 @@
 "use client";
+
 import styled from "styled-components";
 
 export function BgImage({url}: {url: string}) {
@@ -8,6 +9,7 @@ export function BgImage({url}: {url: string}) {
 const Container = styled.img<{$url: string}>`
   width: 121.6rem;
   height: 60rem;
+  
   flex-shrink: 0;
 
   border-radius: 1.2rem;

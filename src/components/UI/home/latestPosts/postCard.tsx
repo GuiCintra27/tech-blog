@@ -1,10 +1,11 @@
-import { PostPreviewData } from "@/lib/types/posts";
-import styled from "styled-components";
-import { Category, PostData, Title } from "../postPreview/dataCard";
-import Image from "next/image";
-import { hexToRgbA } from "@/lib/functions/hexToRgba";
 import Link from "next/link";
-import { months } from "@/lib/constants/months";
+import Image from "next/image";
+import styled from "styled-components";
+
+import { getDate } from "@/lib/functions/getDate";
+import { PostPreviewData } from "@/lib/types/posts";
+import { hexToRgbA } from "@/lib/functions/hexToRgba";
+import { Category, PostData, Title } from "../postPreview/dataCard";
 
 export function PostCard({ posts }: PostPreviewData) {
   const { coverImage, category, title, author, date } = posts;
@@ -27,23 +28,22 @@ export function PostCard({ posts }: PostPreviewData) {
           <Image src={author.picture.url} height={36} width={36} alt="" />
           <p className="light-bold">{author.name}</p>
         </div>
-        <p>{`${months[new Date(date).getMonth()]} 
-        ${new Date(date).getDate()}, 
-        ${new Date(date).getFullYear()}`}</p>
+        <p>{getDate(date)}</p>
       </PostDataExtended>
     </CardContainer>
   );
 }
 
 export const CardContainer = styled.div`
-  display: flex;
   width: 38.5rem;
   padding: 1.6rem;
+
+  display: flex;
+
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 1.6rem;
-
   border-radius: 1.2rem;
   border: ${({ theme }) => theme.borderWidth} solid
     ${({ theme }) => theme.colors.border};

@@ -1,5 +1,5 @@
-import { SkeletonLoading } from "@/components/common/loading";
 import { CardContainer } from "./postCard";
+import { SkeletonLoading } from "@/components/common/loading";
 
 export const LoadingPostCard = () => {
   return (

@@ -1,6 +1,7 @@
 "use client";
 
 import styled from "styled-components";
+
 import { PostCard } from "./postCard";
 import { usePostsQuery } from "@/generated/graphql";
 import { LoadingPostCard } from "./loadingPostCard";
@@ -31,6 +32,7 @@ const SectionTitle = styled.p`
 
 const Container = styled.div`
   display: flex;
+  
   flex-wrap: wrap;
   gap: 2rem;
 `;

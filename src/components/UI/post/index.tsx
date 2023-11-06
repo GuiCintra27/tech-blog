@@ -4,9 +4,9 @@ import Image from "next/image";
 import { PostHeader } from "./header";
 import { Content } from "./content";
 import { usePostQuery } from "@/generated/graphql";
-import { months } from "@/lib/constants/months";
 import { LoadingPost } from "./loadingPost";
 import { SkeletonLoading } from "@/components/common/loading";
+import { getDate } from "@/lib/functions/getDate";
 
 export default function PostContent({ slug }: { slug: string }) {
   const { data, loading } = usePostQuery({
@@ -78,9 +78,7 @@ export default function PostContent({ slug }: { slug: string }) {
                 <p className="light-bold">{data?.post?.author.name}</p>
               </div>
               <p>
-                {`${months[new Date(data?.post?.date).getMonth()]} 
-                  ${new Date(data?.post?.date).getDate()}, 
-                  ${new Date(data?.post?.date).getFullYear()}`}
+                {getDate(data?.post ? data.post.date : "")}
               </p>
             </div>
           </>

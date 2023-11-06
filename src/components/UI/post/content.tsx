@@ -2,22 +2,24 @@ import styled from "styled-components";
 
 export const Content = styled.div`
   margin-bottom: 10rem;
-  display: flex;
   width: 80rem;
+
+  display: flex;
+
   flex-direction: column;
 
   img {
     margin-bottom: 3.2rem;
     width: 100%;
+
     aspect-ratio: 16/9;
     border-radius: 1.2rem;
   }
 
   p {
     margin-bottom: 3.2rem;
-    color: ${({ theme }) => theme.colors.text.post};
 
-    /* Article/lg/Regular */
+    color: ${({ theme }) => theme.colors.text.post};
     font-family: var(--source-serif);
     font-size: 2rem;
     line-height: 3.2rem; /* 160% */
@@ -29,6 +31,7 @@ export const Content = styled.div`
 
   h3 {
     margin-bottom: 1.6rem;
+
     font-size: 2.4rem;
     font-weight: 600;
     line-height: 2.8rem; /* 116.667% */
@@ -41,9 +44,11 @@ export const Content = styled.div`
 
   .mention {
     margin-bottom: 3.2rem;
-    display: flex;
-    flex-direction: column;
     padding: 3.2rem;
+
+    display: flex;
+
+    flex-direction: column;
     justify-content: center;
 
     border-radius: 1.2rem;
@@ -52,6 +57,7 @@ export const Content = styled.div`
 
     p {
       margin: 0;
+
       color: ${({ theme }) => theme.colors.text.primary};
       font-size: 2.4rem;
       font-style: italic;

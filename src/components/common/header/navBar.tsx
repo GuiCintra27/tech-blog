@@ -11,12 +11,12 @@ export function NavBar() {
     <>
       <PageLink>
         {Object.keys(pages).map((page, index) => (
-          <>
+          <div key={index}>
             {/* @ts-expect-error */}
-            <Link key={index} href={pages[page]}>
+            <Link href={pages[page]}>
               {page}
             </Link>
-          </>
+          </div>
         ))}
       </PageLink>
     </>
