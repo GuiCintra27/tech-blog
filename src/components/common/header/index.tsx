@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import styled from "styled-components";
 
 import { NavBar } from "./navBar";
@@ -10,7 +11,7 @@ export function Header() {
   return (
     <Container>
       <main>
-        <img className="logo" src="/logo/logo.svg" alt="Logo" />
+        <Image id="logo" src="/logo/logo.svg" width={158} height={36} alt="Logo" />
         <NavBar />
         <div className="actions">
           <SearchBar />
@@ -31,7 +32,7 @@ const Container = styled.div`
     display: flex;
     justify-content: space-between;
 
-    .logo {
+    #logo {
       filter: brightness(${({ theme }) => theme.brightness})
         invert(${({ theme }) => theme.invert}) grayscale(1);
     }
