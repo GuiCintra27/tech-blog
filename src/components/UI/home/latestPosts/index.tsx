@@ -2,11 +2,16 @@
 
 import styled from "styled-components";
 
+import { Buttons } from "../buttons";
 import { PostCard } from "./postCard";
 import { usePostsQuery } from "@/generated/graphql";
 import { LoadingPostCard } from "./loadingPostCard";
 
-export function LatestPosts() {
+export function LatestPosts({
+  searchParams,
+}: {
+  searchParams: { page: number; search: string };
+}) {
   const { data, loading } = usePostsQuery();
 
   return (
@@ -14,9 +19,23 @@ export function LatestPosts() {
       <SectionTitle>Latest Posts</SectionTitle>;
       <Container>
         {loading
-          ? new Array(10).fill(0).map((_, index) => <LoadingPostCard key={index}/>)
+          ? new Array(10)
+              .fill(0)
+              .map((_, index) => <LoadingPostCard key={index} />)
           : data?.posts?.map((item) => <PostCard posts={item} key={item.id} />)}
       </Container>
+      <Buttons.Root>
+        <Buttons.Button
+          page={searchParams.page - 1}
+          search={searchParams.search}
+          text="Previous Page"
+        />
+        <Buttons.Button
+          page={data?.posts?.length === 9 ? searchParams.page + 1 : -1}
+          search={searchParams.search}
+          text="Next Page"
+        />
+      </Buttons.Root>
     </>
   );
 }
@@ -32,7 +51,7 @@ const SectionTitle = styled.p`
 
 const Container = styled.div`
   display: flex;
-  
+
   flex-wrap: wrap;
   gap: 2rem;
 `;

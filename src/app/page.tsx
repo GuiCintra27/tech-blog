@@ -4,7 +4,10 @@ import { Header } from "@/components/common/header";
 import { LatestPosts } from "@/components/UI/home/latestPosts";
 import { PostPreview } from "@/components/UI/home/postPreview";
 
-export default function Home() {
+export default function Home({searchParams}: {searchParams: {page: string; search: string}}) {
+  const page = Number(searchParams.page || 1);
+  const search = searchParams.search || "";
+
   return (
     <>
       <Header />
@@ -13,7 +16,7 @@ export default function Home() {
       >
         <PostPreview />
         <Ads />
-        <LatestPosts />
+        <LatestPosts searchParams={{ page, search }} />
         <Ads />
       </main>
       <Footer />
