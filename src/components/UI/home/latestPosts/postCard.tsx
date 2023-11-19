@@ -9,7 +9,7 @@ import { Category, PostData, Title } from "../postPreview/dataCard";
 
 export function PostCard({ posts }: PostPreviewData) {
   const { coverImage, category, title, author, date } = posts;
-  const backgroundColor = hexToRgbA(category.color.hex, 0.05);
+  const backgroundColor = hexToRgbA(category ? category.color.hex : "929292", 0.05);
 
   return (
     <CardContainer>
@@ -17,16 +17,16 @@ export function PostCard({ posts }: PostPreviewData) {
         <Image src={coverImage.url} alt="Go to post" width={350} height={240} />
       </Link>
       <CategoryExtended
-        color={category.color.hex}
+        color={category?.color.hex}
         $background_color={backgroundColor}
       >
-        <p>{category.name}</p>
+        <p>{category?.name}</p>
       </CategoryExtended>
       <TitleExtended href={`/posts/${posts.slug}`}>{title}</TitleExtended>
       <PostDataExtended>
         <div className="author">
-          <Image src={author.picture.url} height={36} width={36} alt="" />
-          <p className="light-bold">{author.name}</p>
+          <Image src={author?.picture ? author?.picture?.url : "/icons/undefined-user.png"} height={36} width={36} alt="" />
+          <p className="light-bold">{author?.name}</p>
         </div>
         <p>{getDate(date)}</p>
       </PostDataExtended>

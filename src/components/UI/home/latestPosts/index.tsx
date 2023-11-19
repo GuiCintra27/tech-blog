@@ -12,14 +12,19 @@ export function LatestPosts({
 }: {
   searchParams: { page: number; search: string };
 }) {
-  const { data, loading } = usePostsQuery();
+  const { data, loading } = usePostsQuery({
+    variables: {
+      limit: 9,
+      offset: (searchParams.page - 1) * 9,
+    }
+  });
 
   return (
     <>
       <SectionTitle>Latest Posts</SectionTitle>;
       <Container>
         {loading
-          ? new Array(10)
+          ? new Array(9)
               .fill(0)
               .map((_, index) => <LoadingPostCard key={index} />)
           : data?.posts?.map((item) => <PostCard posts={item} key={item.id} />)}

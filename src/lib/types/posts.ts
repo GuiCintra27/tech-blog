@@ -6,30 +6,30 @@ export type PostPreviewData = {
     title: string;
     date: any;
     coverImage: { __typename?: "Asset"; url: string };
-    category: {
+    category?: {
       __typename?: "Category";
       name: string;
       color: { __typename?: "Color"; hex: any };
-    };
-    author: {
+    } | null;
+    author?: {
       __typename?: "Author";
       name: string;
-      picture: { __typename?: "Asset"; url: string };
-    };
+      picture?: { __typename?: "Asset"; url: string } | null;
+    } | null;
   };
 };
 
 export type DataCardType = {
   title: string;
   date: any;
-  category: {
+  category?: {
     __typename?: "Category";
     name: string;
     color: { __typename?: "Color"; hex: any };
-  };
-  author: {
+  } | null;
+  author?: {
     __typename?: "Author";
     name: string;
-    picture: { __typename?: "Asset"; url: string };
-  };
+    picture?: { __typename?: "Asset"; url: string } | null;
+  } | null;
 };

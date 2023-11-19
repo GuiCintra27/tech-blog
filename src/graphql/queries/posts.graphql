@@ -1,6 +1,8 @@
-query Posts {
+query Posts($limit: Int!, $offset: Int!) {
   posts(
-    orderBy: publishedAt_DESC
+    orderBy: publishedAt_DESC,
+    first: $limit,
+    skip: $offset
   ) {
     id
     slug

@@ -1,4 +1,4 @@
-import { months } from "../constants/months";
+import { months } from "@/utils/date-util";
 
 export function getDate(date: Date) {
   return `${months[new Date(date).getMonth()]} 

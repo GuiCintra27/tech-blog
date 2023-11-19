@@ -31,7 +31,7 @@ export type Aggregate = {
 };
 
 /** Asset system model */
-export type Asset = Node & {
+export type Asset = Entity & Node & {
   __typename?: 'Asset';
   altText?: Maybe<Scalars['String']['output']>;
   authorAvatar: Array<Author>;
@@ -798,7 +798,7 @@ export type AssetWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
 
-export type Author = Node & {
+export type Author = Entity & Node & {
   __typename?: 'Author';
   /** Enter a short bio about yourself, or other authors. */
   biography?: Maybe<Scalars['String']['output']>;
@@ -1361,7 +1361,7 @@ export type BatchPayload = {
 };
 
 /** Categories of posts. */
-export type Category = Node & {
+export type Category = Entity & Node & {
   __typename?: 'Category';
   /** The background color of an category. */
   color: Color;
@@ -1902,7 +1902,7 @@ export type Entity = {
   stage: Stage;
 };
 
-/** This enumeration holds all typenames that implement the Entity interface. Components implement the Entity interface. At the moment models are not supported, models are listed in this enum to avoid an empty enum without any components. */
+/** This enumeration holds all typenames that implement the Entity interface. Components and models implement the Entity interface. */
 export enum EntityTypeName {
   /** Asset system model */
   Asset = 'Asset',
@@ -1920,7 +1920,7 @@ export enum EntityTypeName {
   User = 'User'
 }
 
-/** Allows to specify input to query components directly */
+/** Allows to specify input to query models and components directly */
 export type EntityWhereInput = {
   /** The ID of an object */
   id: Scalars['ID']['input'];
@@ -3101,7 +3101,7 @@ export type PageInfo = {
   startCursor?: Maybe<Scalars['String']['output']>;
 };
 
-export type Post = Node & {
+export type Post = Entity & Node & {
   __typename?: 'Post';
   /** Who should be credited with writing this post? */
   author?: Maybe<Author>;
@@ -3110,7 +3110,7 @@ export type Post = Node & {
   /** Write your blog post! */
   content: PostContentRichText;
   /** Upload or select a cover image to set as your Featured Image */
-  coverImage?: Maybe<Asset>;
+  coverImage: Asset;
   /** The time the document was created */
   createdAt: Scalars['DateTime']['output'];
   /** User that created this document */
@@ -3255,7 +3255,7 @@ export type PostCreateInput = {
   author?: InputMaybe<AuthorCreateOneInlineInput>;
   category?: InputMaybe<CategoryCreateOneInlineInput>;
   content: Scalars['RichTextAST']['input'];
-  coverImage?: InputMaybe<AssetCreateOneInlineInput>;
+  coverImage: AssetCreateOneInlineInput;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   date: Scalars['Date']['input'];
   seoOverride?: InputMaybe<SeoOverrideCreateOneInlineInput>;
@@ -4050,7 +4050,7 @@ export type RichText = {
 };
 
 /** Scheduled Operation system model */
-export type ScheduledOperation = Node & {
+export type ScheduledOperation = Entity & Node & {
   __typename?: 'ScheduledOperation';
   affectedDocuments: Array<ScheduledOperationAffectedDocument>;
   /** The time the document was created */
@@ -4485,7 +4485,7 @@ export type ScheduledOperationWhereUniqueInput = {
 };
 
 /** Scheduled Release system model */
-export type ScheduledRelease = Node & {
+export type ScheduledRelease = Entity & Node & {
   __typename?: 'ScheduledRelease';
   /** The time the document was created */
   createdAt: Scalars['DateTime']['output'];
@@ -5465,7 +5465,7 @@ export type UnpublishLocaleInput = {
 };
 
 /** User system model */
-export type User = Node & {
+export type User = Entity & Node & {
   __typename?: 'User';
   /** The time the document was created */
   createdAt: Scalars['DateTime']['output'];
@@ -5960,19 +5960,22 @@ export type LatestPostQueryVariables = Exact<{
 }>;
 
 
-export type LatestPostQuery = { __typename?: 'Query', posts: Array<{ __typename: 'Post', slug: string, title: string, date: any, coverImage: { __typename: 'Asset', url: string }, category: { __typename: 'Category', name: string, color: { __typename: 'Color', hex: any } }, author: { __typename: 'Author', name: string, picture: { __typename: 'Asset', url: string } } }> };
+export type LatestPostQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', slug: string, title: string, date: any, coverImage: { __typename?: 'Asset', url: string }, category?: { __typename?: 'Category', name: string, color: { __typename?: 'Color', hex: any } } | null, author?: { __typename?: 'Author', name: string, picture?: { __typename?: 'Asset', url: string } | null } | null }> };
 
 export type PostQueryVariables = Exact<{
   slug: Scalars['String']['input'];
 }>;
 
 
-export type PostQuery = { __typename?: 'Query', post?: { __typename: 'Post', title: string, date: any, coverImage: { __typename: 'Asset', url: string }, category: { __typename: 'Category', name: string, color: { __typename: 'Color', hex: any } }, author: { __typename: 'Author', name: string, picture: { __typename: 'Asset', url: string } }, content: { __typename: 'PostContentRichText', markdown: string } } };
+export type PostQuery = { __typename?: 'Query', post?: { __typename?: 'Post', title: string, date: any, coverImage: { __typename?: 'Asset', url: string }, category?: { __typename?: 'Category', name: string, color: { __typename?: 'Color', hex: any } } | null, author?: { __typename?: 'Author', name: string, picture?: { __typename?: 'Asset', url: string } | null } | null, content: { __typename?: 'PostContentRichText', markdown: string } } | null };
 
-export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
+export type PostsQueryVariables = Exact<{
+  limit: Scalars['Int']['input'];
+  offset: Scalars['Int']['input'];
+}>;
 
 
-export type PostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, slug: string, title: string, date: any, coverImage: { __typename: 'Asset', url: string }, category: { __typename: 'Category', name: string, color: { __typename: 'Color', hex: any } }, author: { __typename: 'Author', name: string, picture: { __typename: 'Asset', url: string } } }> };
+export type PostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, slug: string, title: string, date: any, coverImage: { __typename?: 'Asset', url: string }, category?: { __typename?: 'Category', name: string, color: { __typename?: 'Color', hex: any } } | null, author?: { __typename?: 'Author', name: string, picture?: { __typename?: 'Asset', url: string } | null } | null }> };
 
 
 export const LatestPostDocument = gql`
@@ -6092,8 +6095,8 @@ export type PostLazyQueryHookResult = ReturnType<typeof usePostLazyQuery>;
 export type PostSuspenseQueryHookResult = ReturnType<typeof usePostSuspenseQuery>;
 export type PostQueryResult = Apollo.QueryResult<PostQuery, PostQueryVariables>;
 export const PostsDocument = gql`
-    query Posts {
-  posts(orderBy: publishedAt_DESC) {
+    query Posts($limit: Int!, $offset: Int!) {
+  posts(orderBy: publishedAt_DESC, first: $limit, skip: $offset) {
     id
     slug
     title
@@ -6129,10 +6132,12 @@ export const PostsDocument = gql`
  * @example
  * const { data, loading, error } = usePostsQuery({
  *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
  *   },
  * });
  */
-export function usePostsQuery(baseOptions?: Apollo.QueryHookOptions<PostsQuery, PostsQueryVariables>) {
+export function usePostsQuery(baseOptions: Apollo.QueryHookOptions<PostsQuery, PostsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useQuery<PostsQuery, PostsQueryVariables>(PostsDocument, options);
       }

@@ -7,6 +7,7 @@ import { usePostQuery } from "@/generated/graphql";
 import { LoadingPost } from "./loadingPost";
 import { SkeletonLoading } from "@/components/common/loading";
 import { getDate } from "@/lib/functions/getDate";
+import { postLoadingSizes } from "@/utils/loading-util";
 
 export default function PostContent({ slug }: { slug: string }) {
   const { data, loading } = usePostQuery({
@@ -15,67 +16,28 @@ export default function PostContent({ slug }: { slug: string }) {
     },
   });
 
-  const loadingSizes = [
-    {
-      $width: "100%",
-      $height: "45rem",
-      $border_radius: "1.2rem",
-      $margin_bottom: "1.5rem",
-    },
-    {
-      $width: "100%",
-      $height: "10rem",
-      $border_radius: ".6rem",
-      $margin_bottom: "3rem",
-    },
-    {
-      $width: "100%",
-      $height: "10rem",
-      $border_radius: ".6rem",
-      $margin_bottom: "3rem",
-    },
-    {
-      $width: "9rem",
-      $height: "3rem",
-      $border_radius: ".6rem",
-      $margin_bottom: "2rem",
-    },
-    {
-      $width: "100%",
-      $height: "10rem",
-      $border_radius: ".6rem",
-      $margin_bottom: "3rem",
-    },
-    {
-      $width: "100%",
-      $height: "10rem",
-      $border_radius: ".6rem",
-      $margin_bottom: "3rem",
-    },
-  ];
-
   return (
     <>
       <PostHeader
-        $category_background={data?.post ? data.post.category.color.hex : ""}
+        $category_background={data?.post ? data?.post?.category?.color.hex : ""}
       >
         {loading ? (
           <LoadingPost />
         ) : (
           <>
             <div className="category">
-              <p>{data?.post?.category.name}</p>
+              <p>{data?.post?.category?.name}</p>
             </div>
             <div className="title">{data?.post?.title}</div>
             <div className="postData">
               <div className="author">
                 <Image
-                  src={data?.post ? data.post.author.picture.url : ""}
+                  src={data?.post?.author?.picture ? data?.post?.author?.picture?.url : "/icons/undefined-user.png"}
                   alt=""
                   height={28}
                   width={28}
                 />
-                <p className="light-bold">{data?.post?.author.name}</p>
+                <p className="light-bold">{data?.post?.author?.name}</p>
               </div>
               <p>
                 {getDate(data?.post ? data.post.date : "")}
@@ -86,7 +48,7 @@ export default function PostContent({ slug }: { slug: string }) {
       </PostHeader>
       <Content>
         {loading ? (
-          loadingSizes.map((item, index) => (
+          postLoadingSizes.map((item, index) => (
             <SkeletonLoading
               key={index}
               {...item}
