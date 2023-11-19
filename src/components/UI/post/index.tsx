@@ -6,7 +6,7 @@ import { Content } from "./content";
 import { usePostQuery } from "@/generated/graphql";
 import { LoadingPost } from "./loadingPost";
 import { SkeletonLoading } from "@/components/common/loading";
-import { getDate } from "@/lib/functions/getDate";
+import { getDate } from "@/utils/date-util";
 import { postLoadingSizes } from "@/utils/loading-util";
 
 export default function PostContent({ slug }: { slug: string }) {

@@ -12,3 +12,9 @@ export const months = [
   "November",
   "December",
 ];
+
+export function getDate(date: Date) {
+  return `${months[new Date(date).getMonth()]} 
+  ${new Date(date).getDate()}, 
+  ${new Date(date).getFullYear()}`;
+}

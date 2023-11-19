@@ -2,9 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 
-import { getDate } from "@/lib/functions/getDate";
-import { PostPreviewData } from "@/lib/types/posts";
-import { hexToRgbA } from "@/lib/functions/hexToRgba";
+import { getDate } from "@/utils/date-util";
+import { PostPreviewData } from "@/models/posts";
+import { hexToRgbA } from "@/utils/color-util";
 import { Category, PostData, Title } from "../postPreview/dataCard";
 
 export function PostCard({ posts }: PostPreviewData) {

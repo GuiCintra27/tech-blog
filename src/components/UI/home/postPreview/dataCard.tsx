@@ -3,8 +3,8 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-import { DataCardType } from "@/lib/types/posts";
-import { getDate } from "@/lib/functions/getDate";
+import { DataCardType } from "@/models/posts";
+import { getDate } from "@/utils/date-util";
 
 export function DataCard({ category, title, author, date }: DataCardType) {
   return (
