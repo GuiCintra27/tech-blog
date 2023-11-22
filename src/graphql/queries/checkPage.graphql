@@ -1,0 +1,8 @@
+query HasPage($limit: Int!, $offset: Int!){
+posts(
+    first: $limit,
+    skip: $offset
+  ) {
+    id
+  }
+}

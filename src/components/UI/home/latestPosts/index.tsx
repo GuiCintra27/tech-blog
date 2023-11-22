@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import { Buttons } from "../buttons";
 import { PostCard } from "./postCard";
-import { usePostsQuery } from "@/generated/graphql";
+import { useHasPageQuery, usePostsQuery } from "@/generated/graphql";
 import { LoadingPostCard } from "./loadingPostCard";
 
 export function LatestPosts({
@@ -16,7 +16,21 @@ export function LatestPosts({
     variables: {
       limit: 9,
       offset: (searchParams.page - 1) * 9,
-    }
+    },
+  });
+
+  const { data: hasPrevPage } = useHasPageQuery({
+    variables: {
+      limit: 1,
+      offset: (searchParams.page - 2) * 9,
+    },
+  });
+
+  const { data: hasNextPage } = useHasPageQuery({
+    variables: {
+      limit: 1,
+      offset: searchParams.page * 9,
+    },
   });
 
   return (
@@ -30,16 +44,24 @@ export function LatestPosts({
           : data?.posts?.map((item) => <PostCard posts={item} key={item.id} />)}
       </Container>
       <Buttons.Root>
-        <Buttons.Button
-          page={searchParams.page - 1}
-          search={searchParams.search}
-          text="Previous Page"
-        />
-        <Buttons.Button
-          page={data?.posts?.length === 9 ? searchParams.page + 1 : -1}
-          search={searchParams.search}
-          text="Next Page"
-        />
+        {hasPrevPage ? (
+          <Buttons.Button
+            page={searchParams.page - 1}
+            search={searchParams.search}
+            text="Previous Page"
+          />
+        ) : (
+          <div></div>
+        )}
+        {hasNextPage?.posts?.length ? (
+          <Buttons.Button
+            page={data?.posts?.length === 9 ? searchParams.page + 1 : -1}
+            search={searchParams.search}
+            text="Next Page"
+          />
+        ) : (
+          <div></div>
+        )}
       </Buttons.Root>
     </>
   );

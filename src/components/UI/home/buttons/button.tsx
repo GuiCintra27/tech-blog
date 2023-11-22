@@ -12,7 +12,9 @@ export function ButtonsButton({
 }) {
   return (
     <Container>
-      <Link href={page >= 1 ? `?page=${page}&search=${search}` : ""}>
+      <Link
+        href={page >= 1 ? `?page=${page}${search && `&search=${search}`}` : ""}
+      >
         {text}
       </Link>
     </Container>

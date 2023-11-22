@@ -5955,6 +5955,14 @@ export enum _SystemDateTimeFieldVariation {
   Localization = 'localization'
 }
 
+export type HasPageQueryVariables = Exact<{
+  limit: Scalars['Int']['input'];
+  offset: Scalars['Int']['input'];
+}>;
+
+
+export type HasPageQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string }> };
+
 export type LatestPostQueryVariables = Exact<{
   last: Scalars['Int']['input'];
 }>;
@@ -5978,6 +5986,47 @@ export type PostsQueryVariables = Exact<{
 export type PostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, slug: string, title: string, date: any, coverImage: { __typename?: 'Asset', url: string }, category?: { __typename?: 'Category', name: string, color: { __typename?: 'Color', hex: any } } | null, author?: { __typename?: 'Author', name: string, picture?: { __typename?: 'Asset', url: string } | null } | null }> };
 
 
+export const HasPageDocument = gql`
+    query HasPage($limit: Int!, $offset: Int!) {
+  posts(first: $limit, skip: $offset) {
+    id
+  }
+}
+    `;
+
+/**
+ * __useHasPageQuery__
+ *
+ * To run a query within a React component, call `useHasPageQuery` and pass it any options that fit your needs.
+ * When your component renders, `useHasPageQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useHasPageQuery({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useHasPageQuery(baseOptions: Apollo.QueryHookOptions<HasPageQuery, HasPageQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<HasPageQuery, HasPageQueryVariables>(HasPageDocument, options);
+      }
+export function useHasPageLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<HasPageQuery, HasPageQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<HasPageQuery, HasPageQueryVariables>(HasPageDocument, options);
+        }
+export function useHasPageSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<HasPageQuery, HasPageQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<HasPageQuery, HasPageQueryVariables>(HasPageDocument, options);
+        }
+export type HasPageQueryHookResult = ReturnType<typeof useHasPageQuery>;
+export type HasPageLazyQueryHookResult = ReturnType<typeof useHasPageLazyQuery>;
+export type HasPageSuspenseQueryHookResult = ReturnType<typeof useHasPageSuspenseQuery>;
+export type HasPageQueryResult = Apollo.QueryResult<HasPageQuery, HasPageQueryVariables>;
 export const LatestPostDocument = gql`
     query LatestPost($last: Int!) {
   posts(last: $last) {
