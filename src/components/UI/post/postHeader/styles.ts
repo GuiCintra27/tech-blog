@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PostHeader = styled.div<{ $category_background: string }>`
+export const Container = styled.div<{ $category_background: string }>`
   margin-bottom: 3.2rem;
 
   display: flex;
