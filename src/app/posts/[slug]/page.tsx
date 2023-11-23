@@ -9,7 +9,7 @@ export default async function Post({
 }) {
   return (
     <>
-      <Header />
+      <Header search={""} />
       <main
         style={{ width: "fit-content", maxWidth: "80rem", margin: "0 auto" }}
       >
