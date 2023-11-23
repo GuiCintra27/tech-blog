@@ -7,14 +7,21 @@ import { NavBar } from "./navBar";
 import { SearchBar } from "./searchBar";
 import { ChangeThemeButton } from "./changeThemeButton";
 
-export function Header() {
+export function Header({ search }: { search: string }) {
   return (
     <Container>
       <main>
-        <Image id="logo" src="/logo/logo.svg" width={158} height={36} alt="Logo" />
+        <Image
+          priority
+          id="logo"
+          src="/logo/logo.svg"
+          width={158}
+          height={36}
+          alt="Logo"
+        />
         <NavBar />
         <div className="actions">
-          <SearchBar />
+          <SearchBar search={search} />
           <ChangeThemeButton />
         </div>
       </main>

@@ -1,7 +1,10 @@
-query HasPage($limit: Int!, $offset: Int!){
+query HasPage($limit: Int!, $offset: Int!, $title: String!){
 posts(
     first: $limit,
-    skip: $offset
+    skip: $offset,
+    where: {
+      title_contains: $title
+    }
   ) {
     id
   }

@@ -16,6 +16,7 @@ export function LatestPosts({
     variables: {
       limit: 9,
       offset: (searchParams.page - 1) * 9,
+      title: searchParams.search,
     },
   });
 
@@ -23,6 +24,7 @@ export function LatestPosts({
     variables: {
       limit: 1,
       offset: (searchParams.page - 2) * 9,
+      title: searchParams.search,
     },
   });
 
@@ -30,6 +32,7 @@ export function LatestPosts({
     variables: {
       limit: 1,
       offset: searchParams.page * 9,
+      title: searchParams.search,
     },
   });
 

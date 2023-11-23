@@ -5958,6 +5958,7 @@ export enum _SystemDateTimeFieldVariation {
 export type HasPageQueryVariables = Exact<{
   limit: Scalars['Int']['input'];
   offset: Scalars['Int']['input'];
+  title: Scalars['String']['input'];
 }>;
 
 
@@ -5980,6 +5981,7 @@ export type PostQuery = { __typename?: 'Query', post?: { __typename?: 'Post', ti
 export type PostsQueryVariables = Exact<{
   limit: Scalars['Int']['input'];
   offset: Scalars['Int']['input'];
+  title: Scalars['String']['input'];
 }>;
 
 
@@ -5987,8 +5989,8 @@ export type PostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Po
 
 
 export const HasPageDocument = gql`
-    query HasPage($limit: Int!, $offset: Int!) {
-  posts(first: $limit, skip: $offset) {
+    query HasPage($limit: Int!, $offset: Int!, $title: String!) {
+  posts(first: $limit, skip: $offset, where: {title_contains: $title}) {
     id
   }
 }
@@ -6008,6 +6010,7 @@ export const HasPageDocument = gql`
  *   variables: {
  *      limit: // value for 'limit'
  *      offset: // value for 'offset'
+ *      title: // value for 'title'
  *   },
  * });
  */
@@ -6144,8 +6147,13 @@ export type PostLazyQueryHookResult = ReturnType<typeof usePostLazyQuery>;
 export type PostSuspenseQueryHookResult = ReturnType<typeof usePostSuspenseQuery>;
 export type PostQueryResult = Apollo.QueryResult<PostQuery, PostQueryVariables>;
 export const PostsDocument = gql`
-    query Posts($limit: Int!, $offset: Int!) {
-  posts(orderBy: publishedAt_DESC, first: $limit, skip: $offset) {
+    query Posts($limit: Int!, $offset: Int!, $title: String!) {
+  posts(
+    orderBy: publishedAt_DESC
+    first: $limit
+    skip: $offset
+    where: {title_contains: $title}
+  ) {
     id
     slug
     title
@@ -6183,6 +6191,7 @@ export const PostsDocument = gql`
  *   variables: {
  *      limit: // value for 'limit'
  *      offset: // value for 'offset'
+ *      title: // value for 'title'
  *   },
  * });
  */

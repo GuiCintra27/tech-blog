@@ -1,8 +1,11 @@
-query Posts($limit: Int!, $offset: Int!) {
+query Posts($limit: Int!, $offset: Int!, $title: String!) {
   posts(
     orderBy: publishedAt_DESC,
     first: $limit,
-    skip: $offset
+    skip: $offset,
+    where: {
+      title_contains: $title
+    }
   ) {
     id
     slug
