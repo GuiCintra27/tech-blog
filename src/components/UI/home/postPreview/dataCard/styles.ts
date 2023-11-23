@@ -1,30 +1,6 @@
-"use client";
-
-import Image from "next/image";
 import styled from "styled-components";
 
-import { DataCardType } from "@/models/posts";
-import { getDate } from "@/utils/date-util";
-
-export function DataCard({ category, title, author, date }: DataCardType) {
-  return (
-    <Container>
-      <Category color={category?.color.hex}>
-        <p>{category?.name}</p>
-      </Category>
-      <Title>{title}</Title>
-      <PostData>
-        <div className="author">
-          <Image src={author?.picture ? author?.picture?.url : "/icons/undefined-user.png"} height={36} width={36} alt="" />
-          <p className="light-bold">{author?.name}</p>
-        </div>
-        <p>{getDate(date)}</p>
-      </PostData>
-    </Container>
-  );
-}
-
-const Container = styled.div`
+const CardRoot = styled.div`
   position: absolute;
   left: 6.4rem;
   bottom: -6.4rem;
@@ -108,3 +84,10 @@ export const PostData = styled.div`
     gap: 1.2rem;
   }
 `;
+
+export const Card = {
+  Root: CardRoot,
+  Category,
+  Title,
+  PostData,
+}

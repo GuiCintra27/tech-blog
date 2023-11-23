@@ -1,12 +1,6 @@
-"use client";
-
 import styled from "styled-components";
 
-export function BgImage({url}: {url: string}) {
-  return <Container $url={url} />;
-}
-
-const Container = styled.img<{$url: string}>`
+export const Container = styled.img<{$url: string}>`
   width: 121.6rem;
   height: 60rem;
   

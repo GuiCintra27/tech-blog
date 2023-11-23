@@ -1,11 +1,10 @@
 "use client";
 
-import styled from "styled-components";
-
 import { Buttons } from "../buttons";
-import { PostCard } from "./postCard";
+import { PostCard } from "./postCard/postCard";
+import { Container, SectionTitle } from "./styles";
+import { LoadingPostCard } from "./loadingPostCard/loadingPostCard";
 import { useHasPageQuery, usePostsQuery } from "@/generated/graphql";
-import { LoadingPostCard } from "./loadingPostCard";
 
 export function LatestPosts({
   searchParams,
@@ -69,19 +68,3 @@ export function LatestPosts({
     </>
   );
 }
-
-const SectionTitle = styled.p`
-  margin-bottom: 3.2rem;
-
-  color: ${({ theme }) => theme.colors.text.primary};
-  font-size: 2.4rem;
-  font-weight: 700;
-  line-height: 2.8rem; /* 116.667% */
-`;
-
-const Container = styled.div`
-  display: flex;
-
-  flex-wrap: wrap;
-  gap: 2rem;
-`;

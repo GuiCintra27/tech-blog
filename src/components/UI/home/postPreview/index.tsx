@@ -2,8 +2,8 @@
 
 import styled from "styled-components";
 
-import { DataCard } from "./dataCard";
-import { BgImage } from "./backgroundImage";
+import { DataCard } from "./dataCard/dataCard";
+import { BgImage } from "./background/backgroundImage";
 import { useLatestPostQuery } from "@/generated/graphql";
 import { SkeletonLoading } from "@/components/common/loading";
 

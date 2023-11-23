@@ -1,9 +1,10 @@
-import { CardContainer } from "./postCard";
+
+import { Card } from "../postCard/styles";
 import { SkeletonLoading } from "@/components/common/loading";
 
 export const LoadingPostCard = () => {
   return (
-    <CardContainer>
+    <Card.Root>
       <SkeletonLoading $height="24rem" $width="100%" $border_radius="0.6rem" />
       <SkeletonLoading $height="2.8rem" $width="9rem" $border_radius="0.6rem" />
       <SkeletonLoading $height="8rem" $width="100%" $border_radius="0.6rem" />
@@ -25,6 +26,6 @@ export const LoadingPostCard = () => {
           style={{ marginLeft: "1rem" }}
         />
       </div>
-    </CardContainer>
+    </Card.Root>
   );
 };
