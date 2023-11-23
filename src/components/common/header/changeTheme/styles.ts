@@ -1,21 +1,6 @@
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
 
-import { toggleTheme } from "@/components/infra/storage/theme";
-
-export function ChangeThemeButton() {
-  const dispatch = useDispatch();
-
-  return (
-    <Container onClick={() => dispatch(toggleTheme())}>
-      <div className="white-circle">
-        <img src="/icons/change-theme-icon.svg" alt="Change Theme" />
-      </div>
-    </Container>
-  );
-}
-
-const Container = styled.div`
+export const Container = styled.div`
   width: 4.8rem;
   height: 2.8rem;
 

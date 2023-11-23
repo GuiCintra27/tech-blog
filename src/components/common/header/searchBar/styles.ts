@@ -1,20 +1,6 @@
 import styled from "styled-components";
 
-export function SearchBar({ search }: { search: string }) {
-  return (
-    <Container $search_icon={"/icons/search-icon.svg"} action={"/"} method="get">
-      <input
-        type="search"
-        placeholder="Search"
-        name="search"
-        defaultValue={search}
-      />
-      <button type="submit" />
-    </Container>
-  );
-}
-
-const Container = styled.form<{ $search_icon: string }>`
+export const Container = styled.form<{ $search_icon: string }>`
   padding: 0.8rem 0.8rem 0.8rem 1.6rem;
 
   height: 3.6rem;
