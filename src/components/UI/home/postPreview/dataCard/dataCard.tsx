@@ -8,8 +8,8 @@ import { DataCardType } from "@/models/posts";
 
 export function DataCard({ category, title, author, date }: DataCardType) {
   return (
-    <Card.Root>
-      <Card.Category color={category?.color.hex}>
+    <Card.Root data-testid="post-preview-data-card">
+      <Card.Category data-testid="post-preview-category" color={category?.color.hex}>
         <p>{category?.name}</p>
       </Card.Category>
       <Card.Title>{title}</Card.Title>

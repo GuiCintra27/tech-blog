@@ -14,7 +14,9 @@ export const months = [
 ];
 
 export function getDate(date: Date) {
-  return `${months[new Date(date).getMonth()]} 
-  ${new Date(date).getDate()}, 
-  ${new Date(date).getFullYear()}`;
+  const month = months[new Date(date).getMonth()];
+  const day = new Date(date).getDate();
+  const year = new Date(date).getFullYear();
+  
+  return `${month} ${day}, ${year}`;
 }

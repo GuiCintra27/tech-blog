@@ -1,4 +1,4 @@
-export function hexToRgbA(hex: string, opacity: number = 1, rgb: boolean = false) {
+export function hexToRgbA(hex: string, opacity: number = 1, isRgb: boolean = false) {
   var c: string | string[];
   if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
       c= hex.substring(1).split('');
@@ -7,7 +7,7 @@ export function hexToRgbA(hex: string, opacity: number = 1, rgb: boolean = false
       }
       const rgb = Number('0x'+c.join(''));
 
-      if(rgb) return 'rgb('+[(rgb>>16)&255, (rgb>>8)&255, rgb&255].join(', ')+')';
+      if(isRgb) return 'rgb('+[(rgb>>16)&255, (rgb>>8)&255, rgb&255].join(', ')+')';
 
       return 'rgba('+[(rgb>>16)&255,(rgb>>8)&255,rgb&255].join(',')+`,${opacity})`;
   }
