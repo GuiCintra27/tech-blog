@@ -9,7 +9,7 @@ export function hexToRgbA(hex: string, opacity: number = 1, isRgb: boolean = fal
 
       if(isRgb) return 'rgb('+[(rgb>>16)&255, (rgb>>8)&255, rgb&255].join(', ')+')';
 
-      return 'rgba('+[(rgb>>16)&255,(rgb>>8)&255,rgb&255].join(',')+`,${opacity})`;
+      return 'rgba('+[(rgb>>16)&255,(rgb>>8)&255,rgb&255].join(', ')+`, ${opacity})`;
   }
   throw new Error('Bad Hex');
 }

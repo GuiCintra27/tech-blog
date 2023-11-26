@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-import { Category, PostData, Title } from "@/components/UI/home/postPreview/dataCard/styles";
+import {
+  PostData,
+  Title,
+} from "@/components/UI/home/postPreview/dataCard/styles";
 
 const CardRoot = styled.div`
   width: 38.5rem;
@@ -23,10 +26,24 @@ const CardRoot = styled.div`
   }
 `;
 
-const CategoryExtended = styled(Category)<{ $background_color: string }>`
-  background-color: ${({ $background_color }) => $background_color};
+const Category = styled.div<{ $background_color: string }>`
+  padding: 0.4rem 1rem;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+
+  border-radius: 0.6rem;
+  background: ${({ $background_color }) => $background_color};
+
   p {
-    color: ${({ color }) => color};
+    color: ${({ theme }) => theme.colors.text.primary};
+
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 2rem; /* 142.857% */
   }
 `;
 
@@ -51,7 +68,7 @@ const PostDataExtended = styled(PostData)`
 
 export const Card = {
   Root: CardRoot,
-  Category: CategoryExtended,
+  Category,
   Title: TitleExtended,
-  PostData: PostDataExtended
-}
+  PostData: PostDataExtended,
+};
