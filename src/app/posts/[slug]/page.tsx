@@ -2,7 +2,7 @@ import PostContent from "@/components/UI/post";
 import { Footer } from "@/components/common/footer";
 import { Header } from "@/components/common/header";
 
-export default async function Post({
+export default function Post({
   params: { slug },
 }: {
   params: { slug: string };
