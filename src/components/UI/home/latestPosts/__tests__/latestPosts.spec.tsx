@@ -24,14 +24,14 @@ describe("Latest Posts", () => {
     expect(getAllByText(postMocked.title).length).toBe(9);
   });
 
-  it("should have props color on category background and alpha should be 0.05", () => {
+  it("should have props color on category background and alpha should be 0.1", () => {
     const { getByTestId } = renderComponent(1);
 
     const categoryCard = getByTestId("post-card-category");
     const style = window.getComputedStyle(categoryCard);
 
     expect(style.backgroundColor).toBe(
-      hexToRgbA(postMocked.category.color.hex, 0.05)
+      hexToRgbA(postMocked.category.color.hex, 0.1)
     );
   });
 

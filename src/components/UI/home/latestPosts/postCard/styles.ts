@@ -26,7 +26,7 @@ const CardRoot = styled.div`
   }
 `;
 
-const Category = styled.div<{ $background_color: string }>`
+const Category = styled.div<{ color: string; $background_color: string }>`
   padding: 0.4rem 1rem;
 
   display: flex;
@@ -39,7 +39,7 @@ const Category = styled.div<{ $background_color: string }>`
   background: ${({ $background_color }) => $background_color};
 
   p {
-    color: ${({ theme }) => theme.colors.text.primary};
+    color: ${({ color }) => color};
 
     font-size: 1.4rem;
     font-weight: 500;

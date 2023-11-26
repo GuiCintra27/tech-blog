@@ -8,7 +8,7 @@ import { PostPreviewData } from "@/models/posts";
 
 export function PostCard({ posts }: PostPreviewData) {
   const { coverImage, category, title, author, date } = posts;
-  const backgroundColor = hexToRgbA((category ? category.color.hex : "929292"), 0.05);
+  const backgroundColor = hexToRgbA((category ? category.color.hex : "929292"), 0.1);
 
   return (
     <Card.Root>
@@ -16,6 +16,7 @@ export function PostCard({ posts }: PostPreviewData) {
         <Image src={coverImage.url} alt="Go to post" width={350} height={240} />
       </Link>
       <Card.Category
+        color={category?.color.hex}
         $background_color={backgroundColor}
         data-testid="post-card-category"
       >
