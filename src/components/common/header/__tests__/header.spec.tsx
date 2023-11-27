@@ -1,17 +1,17 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 
 import { Header } from "..";
 import { darkTheme } from "@/theme/dark-theme";
 import { hexToRgbA } from "@/utils/color-util";
 import { whiteTheme } from "@/theme/white-theme";
-import { ComponentWrapper } from "@/test/utils/componentWrapper";
+import { render } from "@/test/utils/customRender";
 
 describe("Header", () => {
   function renderComponent(search: string = "") {
     return render(
-      <ComponentWrapper>
+      <>
         <Header search={search} />
-      </ComponentWrapper>
+      </>
     );
   }
 

@@ -1,20 +1,18 @@
-import { render } from "@testing-library/react";
-
 import { hexToRgbA } from "@/utils/color-util";
 import { PostCard } from "../postCard/postCard";
+import { render } from "@/test/utils/customRender";
 import { generatePostMocked } from "../mocks/postMocked";
-import { ComponentWrapper } from "@/test/utils/componentWrapper";
 import { convertUrlToSrc } from "@/test/utils/convertUrlToSrc";
 
 describe("Latest Posts", () => {
   const postMocked = generatePostMocked();
   function renderComponent(quantity?: number) {
     return render(
-      <ComponentWrapper>
+      <>
         {new Array(quantity ? quantity : 9).fill(postMocked).map((_, index) => (
           <PostCard posts={postMocked} key={index} />
         ))}
-      </ComponentWrapper>
+      </>
     );
   }
 

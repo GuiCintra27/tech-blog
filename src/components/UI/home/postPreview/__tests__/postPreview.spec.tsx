@@ -1,19 +1,17 @@
-import { render } from "@testing-library/react";
-
 import { DataCard } from "../dataCard/dataCard";
+import { render } from "@/test/utils/customRender";
 import { BgImage } from "../background/backgroundImage";
 import { generatePostData } from "../mocks/postDataMocked";
-import { ComponentWrapper } from "@/test/utils/componentWrapper";
 
 describe("Post Preview", () => {
   const postDataMocked = generatePostData();
 
   function renderComponent(date?: Date ) {
     return render(
-      <ComponentWrapper>
+      <>
         <BgImage url="/logo/logo.svg" />
         <DataCard {...postDataMocked} date={date ? date : postDataMocked.date}/>
-      </ComponentWrapper>
+      </>
     );
   }
 
@@ -32,10 +30,10 @@ describe("Post Preview", () => {
     postDataMocked.title = "title";
 
     rerender(
-      <ComponentWrapper>
+      <>
         <BgImage url="/logo/logo.svg" />
         <DataCard {...postDataMocked} />
-      </ComponentWrapper>
+      </>
     );
 
     expect(queryByText("title")).toBeInTheDocument();
