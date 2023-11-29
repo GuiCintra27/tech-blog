@@ -1,4 +1,4 @@
-# English version 🇱🇷 - [(Go to Brazilian version 🇧🇷)](https://github.com/GuiCintra27/Track-it/blob/main/readme-portuguese.md)
+# English version 🇱🇷 - [(Go to Brazilian version 🇧🇷)](https://github.com/GuiCintra27/tech-blog/blob/main/readme-pt.md)
 
 <div align="center">
   <img src="./public/banner.png" width="90%"/>
