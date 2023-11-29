@@ -1,6 +1,6 @@
 # Versão Brasileira 🇧🇷
 
-<div style="text-align: center;">
+<div align="center">
   <img  style="border-radius: 8px;" src="./public/banner.png" width="90%"/>
   <br/>
   <br/>
