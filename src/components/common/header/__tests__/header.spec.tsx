@@ -7,17 +7,11 @@ import { whiteTheme } from "@/theme/white-theme";
 import { render } from "@/test/utils/customRender";
 
 describe("Header", () => {
-  function renderComponent(search: string = "") {
-    return render(
-      <>
-        <Header search={search} />
-      </>
-    );
-  }
 
   it("should render header components", () => {
-    const { queryByText, queryByPlaceholderText, queryByTestId } =
-      renderComponent();
+    const { queryByText, queryByPlaceholderText, queryByTestId } = render(
+      <Header search={""} />
+    );
 
     const categories = queryByText("Categories");
     const searchBar = queryByPlaceholderText("Search");
@@ -30,7 +24,7 @@ describe("Header", () => {
 
   describe("Navigation Bar", () => {
     it("should load the right links in the navigation bar", () => {
-      const { queryByRole } = renderComponent();
+      const { queryByRole } = render(<Header search={""} />);
 
       expect(queryByRole("link", { name: "Home" })).toHaveAttribute(
         "href",
@@ -44,7 +38,7 @@ describe("Header", () => {
 
     it("should display an alert when the Categories link is clicked", () => {
       window.alert = jest.fn();
-      const { getByText } = renderComponent();
+      const { getByText } = render(<Header search={""} />);
 
       const categoriesLink = getByText("Categories");
 
@@ -59,8 +53,9 @@ describe("Header", () => {
 
   describe("Search Bar", () => {
     it("should change page on submit", () => {
-      const { getByPlaceholderText, getByTestId, getByRole } =
-        renderComponent();
+      const { getByPlaceholderText, getByTestId, getByRole } = render(
+        <Header search={""} />
+      );
 
       const input = getByPlaceholderText("Search");
       const form = getByTestId("search-bar-form");
@@ -88,7 +83,7 @@ describe("Header", () => {
 
   describe("Change Theme", () => {
     it("should change theme when button is clicked", () => {
-      const { getByTestId } = renderComponent();
+      const { getByTestId } = render(<Header search={""} />);
 
       const changeThemeButton = getByTestId("change-theme-button");
       const searchBar = getByTestId("search-bar-form");
@@ -103,7 +98,9 @@ describe("Header", () => {
       const darkSearchBar = getByTestId("search-bar-form");
       const darkStyle = window.getComputedStyle(darkSearchBar);
 
-      expect(darkStyle.backgroundColor).toBe(hexToRgbA(darkTheme.colors.headerSearchBar, 0, true));
+      expect(darkStyle.backgroundColor).toBe(
+        hexToRgbA(darkTheme.colors.headerSearchBar, 0, true)
+      );
     });
   });
 });

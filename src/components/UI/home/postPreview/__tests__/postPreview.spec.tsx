@@ -6,41 +6,32 @@ import { generatePostData } from "../mocks/postDataMocked";
 describe("Post Preview", () => {
   const postDataMocked = generatePostData();
 
-  function renderComponent(date?: Date ) {
-    return render(
-      <>
-        <BgImage url="/logo/logo.svg" />
-        <DataCard {...postDataMocked} date={date ? date : postDataMocked.date}/>
-      </>
-    );
-  }
-
   it("should render Post Preview components", () => {
-    const { queryByTestId } = renderComponent();
-
-    expect(queryByTestId("post-preview-background")).toBeInTheDocument();
-    expect(queryByTestId("post-preview-data-card")).toBeInTheDocument();
-  });
-
-  it("should change content when props change", () => {
-    const { queryByText, rerender } = renderComponent();
-
-    expect(queryByText(postDataMocked.title)).toBeInTheDocument();
-
-    postDataMocked.title = "title";
-
-    rerender(
+    const { queryByTestId } = render(
       <>
         <BgImage url="/logo/logo.svg" />
         <DataCard {...postDataMocked} />
       </>
     );
 
+    expect(queryByTestId("post-preview-background")).toBeInTheDocument();
+    expect(queryByTestId("post-preview-data-card")).toBeInTheDocument();
+  });
+
+  it("should change content when props change", () => {
+    const { queryByText, rerender } = render(<DataCard {...postDataMocked} />);
+
+    expect(queryByText(postDataMocked.title)).toBeInTheDocument();
+
+    postDataMocked.title = "title";
+
+    rerender(<DataCard {...postDataMocked} />);
+
     expect(queryByText("title")).toBeInTheDocument();
   });
 
   it("should have props color on category background", () => {
-    const { getByTestId } = renderComponent();
+    const { getByTestId } = render(<DataCard {...postDataMocked} />);
 
     const categoryCard = getByTestId("post-preview-category");
 
@@ -52,7 +43,9 @@ describe("Post Preview", () => {
   it("date should be in the format 'MM DD, YYYY'", () => {
     const date = new Date("2022-01-02");
 
-    const { queryByText } = renderComponent(date);
+    const { queryByText } = render(
+      <DataCard {...postDataMocked} date={date} />
+    );
 
     expect(queryByText("January 1, 2022")).toBeInTheDocument();
   });
