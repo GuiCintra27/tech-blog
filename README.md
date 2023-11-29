@@ -1,7 +1,7 @@
 # English version 🇱🇷 - [(Go to Brazilian version 🇧🇷)](https://github.com/GuiCintra27/Track-it/blob/main/readme-portuguese.md)
 
-<div style="text-align: center;">
-  <img  style="border-radius: 8px;" src="./public/banner.png" width="90%"/>
+<div align="center">
+  <img src="./public/banner.png" width="90%"/>
   <br/>
   <br/>
   <a href="https://tech-blog-cintra.vercel.app/"><strong>Deploy Link »</strong></a>
