@@ -4,12 +4,12 @@
   <img src="./public/banner.png" width="90%"/>
   <br/>
   <br/>
-  <a href="https://tech-blog-cintra.vercel.app/"><strong>Deploy Link »</strong></a>
+  <a href="https://tech-blog-cintra.vercel.app/" target=”_blank”><strong>Deploy Link »</strong></a>
   <br/>
   <br/>
 </div>
 <div align="center">
-  <a href="https://www.figma.com/file/esJ75DiHt6C0JPaV5ufdSJ/Tech-Blog?type=design&mode=design&t=i8306vKEQjkKnRTe-1">Figma</a> •
+  <a href="https://www.figma.com/file/esJ75DiHt6C0JPaV5ufdSJ/Tech-Blog?type=design&mode=design&t=i8306vKEQjkKnRTe-1" target=”_blank”>Figma</a> •
   <a href="#about">About</a> •
   <a href="#technologies">Technologies</a> •
   <a href="#run">How to run?</a> •
@@ -111,5 +111,5 @@ npm test
 
 ## <span id="links">🚀 Links</span>
 
-- [Deploy](https://tech-blog-cintra.vercel.app/)
-- [Figma](https://www.figma.com/file/esJ75DiHt6C0JPaV5ufdSJ/Tech-Blog?type=design&mode=design&t=i8306vKEQjkKnRTe-1)
+- <a href="https://tech-blog-cintra.vercel.app/" target=”_blank”>Deploy</a>
+- <a href="https://www.figma.com/file/esJ75DiHt6C0JPaV5ufdSJ/Tech-Blog?type=design&mode=design&t=i8306vKEQjkKnRTe-1" target=”_blank”>Figma</a>
